@@ -6,9 +6,11 @@ public class BasePage {
     protected String pageUrl;
     PropertyManager propertyManager = new PropertyManager();
 
-    public BasePage(String pageUrl) {
+    public BasePage() {
         this.pageUrl = pageUrl;
     }
+
+
 
     public void open() {
         String url = propertyManager.getProperty("APP_URL") ;

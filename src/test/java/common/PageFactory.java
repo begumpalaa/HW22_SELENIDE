@@ -7,7 +7,9 @@ public class PageFactory {
 
 
     public static HomePage buildHomePage() {
-        return new HomePage("/inventory.html");
+
+        return new HomePage();
     }
+
 
 }

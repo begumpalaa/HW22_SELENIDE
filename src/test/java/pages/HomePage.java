@@ -1,10 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage extends BasePage {
+
 
 
 
@@ -30,8 +32,8 @@ public class HomePage extends BasePage {
     public static SelenideElement submitButtonEdt = $x("//button[@id='submit']");
 
 
-    public HomePage(String pageUrl) {
-        super(pageUrl);
+    public HomePage() {
+        super();
     }
 }
 

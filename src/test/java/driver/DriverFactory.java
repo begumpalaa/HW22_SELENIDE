@@ -4,13 +4,13 @@ import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.Dimension;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.BasePage;
+
 import utils.PropertyManager;
 
 import java.net.MalformedURLException;
@@ -89,36 +89,21 @@ public class DriverFactory {
         return WebDriverRunner.getWebDriver();
     }
 
+
     public static void open(String url) {
         Selenide.open(url);
     }
-
-    public static void refresh() {
-        Selenide.refresh();
-    }
-
-
-    public static void maximize() {
-        currentDriver().manage().window().maximize();
-    }
-
-    public static void changeWindowSize(int width, int height) {
-        currentDriver().manage().window().setSize(new Dimension(width, height));
-    }
-
 
     public static void waitForUrlContains(String urlChunk) {
         WebDriverWait wait = new WebDriverWait(currentDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.urlContains(urlChunk));
     }
 
-    public static void clearCookies() {
-        open(propertyManager.getProperty("APP_URL"));
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
-    }
 
     public static void close() {
         currentDriver().quit();
+    }
+
+    public static void clearCookies() {
     }
 }
